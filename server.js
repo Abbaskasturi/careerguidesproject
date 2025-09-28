@@ -4,11 +4,11 @@ const { MongoClient } = require("mongodb");
 const cors = require("cors"); 
 
 dotEnv.config();
-app.use(cors()); 
 const app = express();
 app.use(express.json());
 
 const PORT = 5000;
+app.use(cors()); 
 const authRoutes = require("./routes/authRoutes");
 const getDataRoutes = require("./routes/getDataRoutes"); 
 
