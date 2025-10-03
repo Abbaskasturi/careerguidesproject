@@ -120,4 +120,58 @@ const cloud = async (request, response) => {
     }
 
 }
-module.exports = { aiAndMl, cyber , ds, Mobile_Application, Ar_vr, blockchain, cloud};
+
+const fullstack = async (request, response) => {
+    try{
+        const db = request.app.locals.db; 
+        const dbData = await db.collection("fullstack").find({}).toArray(); 
+        if(dbData){
+            response.status(201).json({dbData})
+        }else{
+            response.status(400).json({message: "Fail to fetch the data"}); 
+        }
+
+    }catch(error){
+        response.status(500).json({
+            message: "Internal Error"
+        })
+    }
+
+}
+
+const IOT = async (request, response) => {
+    try{
+        const db = request.app.locals.db; 
+        const dbData = await db.collection("IOT").find({}).toArray(); 
+        if(dbData){
+            response.status(201).json({dbData})
+        }else{
+            response.status(400).json({message: "Fail to fetch the data"}); 
+        }
+
+    }catch(error){
+        response.status(500).json({
+            message: "Internal Error"
+        })
+    }
+
+}
+
+const Automation = async (request, response) => {
+    try{
+        const db = request.app.locals.db; 
+        const dbData = await db.collection("Automation").find({}).toArray(); 
+        if(dbData){
+            response.status(201).json({dbData})
+        }else{
+            response.status(400).json({message: "Fail to fetch the data"}); 
+        }
+
+    }catch(error){
+        response.status(500).json({
+            message: "Internal Error"
+        })
+    }
+
+}
+module.exports = { aiAndMl, cyber , ds, Mobile_Application, Ar_vr, blockchain, cloud, fullstack, IOT, Automation };
